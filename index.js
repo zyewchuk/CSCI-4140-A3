@@ -6,7 +6,7 @@ const app = express();
 const port = process.env.PORT || 3000;
 
 // MongoDB connection setup
-const uri = process.env.MONGODB_URI || 'mongodb://localhost:27017';
+const uri = process.env.MONGODB_URI || 'mongodb+srv://zk977238:kvK8COmFyE4xb0su@cluster0.7cfbvrw.mongodb.net/';
 const dbName = 'assignment3';
 const client = new MongoClient(uri, { useUnifiedTopology: true });
 
