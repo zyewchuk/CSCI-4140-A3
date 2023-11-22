@@ -4,12 +4,9 @@ const { MongoClient } = require('mongodb');
 
 const app = express();
 const port = process.env.PORT || 3000;
-app.listen(port, () => {
-  console.log(`Server is running on port ${port}`);
-});
 
 // MongoDB connection setup
-const uri = 'mongodb://localhost:27017';
+const uri = process.env.MONGODB_URI || 'mongodb://localhost:27017';
 const dbName = 'assignment3';
 const client = new MongoClient(uri, { useUnifiedTopology: true });
 
