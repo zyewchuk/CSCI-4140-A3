@@ -1,10 +1,10 @@
 document.addEventListener('DOMContentLoaded', async () => {
   // Fetch players data from the server
-  const playersResponse = await fetch('${baseUrl}/players');
+  const playersResponse = await fetch(`${baseUrl}/players`);
   const players = await playersResponse.json();
 
   // Fetch teams data from the server
-  const teamsResponse = await fetch('${baseUrl}/teams');
+  const teamsResponse = await fetch(`${baseUrl}/teams`);
   const teams = await teamsResponse.json();
 
   // Now you have the actual data from your MongoDB collections
@@ -148,7 +148,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 async function displayTeams() {
   try {
     // Fetch teams data from the server
-    const teamsResponse = await fetch('${baseUrl}/playersteams');
+    const teamsResponse = await fetch(`${baseUrl}/playersteams`);
     if (!teamsResponse.ok) {
       throw new Error('Failed to fetch teams');
     }
