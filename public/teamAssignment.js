@@ -149,7 +149,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 async function displayTeams() {
   try {
     // Fetch teams data from the server
-    const teamsResponse = await fetch(`${baseUrl}/playersteams`);
+    const teamsResponse = await fetch(`${baseUrl}/teams`);
     if (!teamsResponse.ok) {
       throw new Error('Failed to fetch teams');
     }

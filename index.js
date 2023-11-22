@@ -103,28 +103,6 @@ app.post('/insert-players/:teamName', async (req, res) => {
     res.status(500).json({ success: false, message: 'Internal Server Error' });
   }
 });
-// Add a route to retrieve information about all teams
-app.get('/teams-info', async (req, res) => {
-  try {
-    await connectToDB();
-
-    const database = client.db(dbName);
-    const teamsCollection = database.collection('Teams545');
-
-    // Retrieve information about all teams
-    const teams = await teamsCollection.aggregate([
-      { $unwind: '$players' },
-      { $group: { _id: '$_id', team_name545: { $first: '$team_name545' }, manager_first_name: { $first: '$manager_first_name' }, manager_last_name: { $first: '$manager_last_name' }, players: { $push: '$players' } } },
-      { $sort: { team_name545: 1 } }
-    ]).toArray();
-
-    // Send JSON response for API request
-    res.json(teams);
-  } catch (err) {
-    console.error('Error fetching teams:', err);
-    res.status(500).send('Internal Server Error');
-  }
-});
 
 
 // Start the server
