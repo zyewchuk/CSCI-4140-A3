@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', async () => {
   // Fetch players data from the server
+  const baseUrl = window.location.origin;
   const playersResponse = await fetch(`${baseUrl}/players`);
   const players = await playersResponse.json();
 
