@@ -26,7 +26,8 @@ app.set('view engine', 'ejs');
 app.use(express.static('public'));
 app.use(bodyParser.json());
 
-const baseUrl = window.location.origin;
+const baseUrl = typeof window !== 'undefined' ? window.location.origin : 'http://localhost:3000';
+
 // Serve index.html as the main entry point
 app.get('/', (req, res) => {
   res.sendFile(__dirname + '/index.html');
