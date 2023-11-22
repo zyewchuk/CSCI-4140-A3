@@ -25,12 +25,13 @@ app.set('view engine', 'ejs');
 // Serve static files (like JS) from the 'public' directory
 app.use(express.static('public'));
 app.use(bodyParser.json());
+
+const baseUrl = window.location.origin;
 // Serve index.html as the main entry point
 app.get('/', (req, res) => {
   res.sendFile(__dirname + '/index.html');
 });
 
-// Define a route to render the player list
 app.get('/players', async (req, res) => {
   await connectToDB();
 
@@ -127,5 +128,5 @@ app.get('/teams-info', async (req, res) => {
 
 // Start the server
 app.listen(port, () => {
-  console.log(`Server running at http://localhost:${port}`);
+  console.log(`Server running at ${baseUrl}`);
 });
