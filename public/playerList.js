@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', async () => {
       <p>${player.phone_number}</p>
       <p>Preferences:</p>
       ${player.preferences
-        .map((preference, index) => `<p>${index + 1}st: ${preference}</p>`)
+        .map((preference, index) => `<p id="playerPreference">${index + 1}: ${preference}</p>`)
         .join('')}
     `;
 
