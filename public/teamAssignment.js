@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   const teamsResponse = await fetch(`${baseUrl}/teams`);
   const teams = await teamsResponse.json();
 
-  // Now you have the actual data from your MongoDB collections
+
   console.log('Players:', players);
   console.log('Teams:', teams);
 
@@ -43,7 +43,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     // Clear previous content
     container.innerHTML = '';
 
-    // Create a new <div> for each assigned player and append it to the container
     assignedPlayers.forEach(player => {
         const playerInfoDiv = document.createElement('div');
         playerInfoDiv.textContent = `${player.first_name} ${player.last_name_545} assigned to ${player.team} - ${player.points} points`;
@@ -51,9 +50,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     });
 }
  
-
-
-
 // Function to assign players to teams based on preferences
   function assignPlayersToTeams(players, teams) {
     // Reset players in each team
@@ -105,7 +101,7 @@ document.addEventListener('DOMContentLoaded', async () => {
       }
     });
 
-   // Display points for each team and total
+
 let totalPointsAcrossTeams = 0; // Initialize total points
 
 teams.forEach((team) => {

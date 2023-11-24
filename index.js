@@ -78,7 +78,7 @@ app.get('/teams', async (req, res) => {
     res.status(500).send('Internal Server Error');
   }
 });
-// Add a new endpoint to handle the insertion of players into the "players" array of a specific team
+//  endpoint to handle the insertion of players into the "players" array of a specific team
 app.post('/insert-players/:teamName', async (req, res) => {
   try {
     await connectToDB();
