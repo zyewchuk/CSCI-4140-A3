@@ -105,19 +105,25 @@ document.addEventListener('DOMContentLoaded', async () => {
       }
     });
 
-    // Display points for each team and total
-    teams.forEach((team) => {
-      const totalPoints = team.players.reduce((sum, player) => {
-        // Assign points based on preferences
-        const points =
-          player.preferences.indexOf(team.team_name545) === 0 ? 2 : 1;
-        return sum + points;
-      }, 0);
+   // Display points for each team and total
+let totalPointsAcrossTeams = 0; // Initialize total points
 
-      console.log(`${team.team_name545} - Total Points: ${totalPoints}`);
-    });
+teams.forEach((team) => {
+  const totalPoints = team.players.reduce((sum, player) => {
+    // Assign points based on preferences
+    const points =
+      player.preferences.indexOf(team.team_name545) === 0 ? 2 : 1;
+    return sum + points;
+  }, 0);
 
-    return assignedPlayers;
+  console.log(`${team.team_name545} - Total Points: ${totalPoints}`);
+  totalPointsAcrossTeams += totalPoints; // Accumulate total points
+});
+
+console.log(`Total Points Across Teams: ${totalPointsAcrossTeams}`);
+
+return assignedPlayers;
+
   }
 
   // Function to insert assigned players into MongoDB
